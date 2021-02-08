@@ -10,8 +10,6 @@ public class StringTest {
   @Test
   public void split() {
     String[] values = "1,2".split(",");
-    // assertThat(values[0]).isEqualTo("1");
-    // assertThat(values[0]).isEqualTo("2");
     assertThat(values).containsExactly("1", "2");
 
     values = "1".split(",");
