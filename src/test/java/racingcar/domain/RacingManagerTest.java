@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
 
 class RacingManagerTest {
 
