@@ -8,9 +8,14 @@ import racingcar.domain.car.Car;
 
 public class Participants {
 
-  private final List<Car> cars = new ArrayList<>();
+  private final List<Car> cars;
+
+  public Participants(final List<Car> cars) {
+    this.cars = new ArrayList<>(cars);
+  }
 
   public Participants(final String... names) {
+    cars = new ArrayList<>();
     for (String name : names) {
       cars.add(new Car(name));
     }
