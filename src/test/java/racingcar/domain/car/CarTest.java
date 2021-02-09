@@ -1,13 +1,13 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.car.Car;
 
 class CarTest {
 
@@ -32,5 +32,12 @@ class CarTest {
   void car_name_exception(String name) {
     assertThatThrownBy(() -> new Car(name))
         .isInstanceOf(IllegalStateException.class);
+  }
+
+  @Test
+  void is_same_position() {
+    Car expected = new Car("jason");
+    assertThat(car.getPosition()).isEqualTo(expected.getPosition());
+    assertThat(car.isSamePosition(expected)).isTrue();
   }
 }

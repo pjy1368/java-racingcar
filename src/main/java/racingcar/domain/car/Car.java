@@ -4,15 +4,16 @@ public class Car implements Comparable<Car> {
 
   public static final int MIN_RUNNABLE_FUEL = 4;
   private final Name name;
-  private int position = 0;
+  private Position position;
 
   public Car(final String name) {
     this.name = new Name(name);
+    position = new Position(0);
   }
 
   public void fillInFulAndRun(final int fuel) {
     if (isRunnable(fuel)) {
-      this.position++;
+      position = position.run();
     }
   }
 
@@ -21,11 +22,11 @@ public class Car implements Comparable<Car> {
   }
 
   public int getPosition() {
-    return position;
+    return position.get();
   }
 
   public boolean isSamePosition(final Car car) {
-    return position == car.position;
+    return position.equals(car.position);
   }
 
   public String getName() {
@@ -34,6 +35,6 @@ public class Car implements Comparable<Car> {
 
   @Override
   public int compareTo(final Car car) {
-    return car.position - position;
+    return car.position.get() - position.get();
   }
 }
